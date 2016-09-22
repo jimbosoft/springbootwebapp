@@ -1,0 +1,55 @@
+ 	<div class="well">
+   		<div class="row">
+      		<div class="col-sm-6" style="background-color: lavender;">
+        		 <div class="row">
+           			<div class="col-sm-6" style="display: table-cell;">
+               			<h3>Cluster Status</h3>
+               			<strong>Cluster Name:</strong><br/>
+               			<strong>My Node Name:</strong>
+            		</div>
+            		<div class="col-sm-6" style="display: table-cell;">
+        		 		<div class="row">
+               				<span class="pull-left"><h4>{{date | date:'dd.MM.yyyy HH:mm:ss'}}</h4></span>
+               			</div>
+        		 		<div class="row">
+               			{{clusterDetails.clusterName}}
+                			</div>
+        		 		<div class="row">
+               			{{clusterDetails.myNodeName}}
+                			</div>
+            		</div>
+         		</div>
+      		</div>
+      		<div class="col-sm-6" style="outline: 1px solid orange;">
+		        <ul>
+		            <li ng-repeat="node in clusterNodes">
+		                <strong>Node name:</strong> {{node}} <span ng-if="$first"><strong>(Coordinator)</strong></span>
+		                <span ng-if="clusterDetails.myNodeName == node"><mark>(This Node)</strong></mark>
+		            </li>
+		        </ul>
+      		</div>
+      	</div>
+      </div>
+      
+ 	  <table class="table table-hover">
+			    <thead>
+			      <tr>
+			        <th>Node Name</th>
+			        <th>Stuff</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+			        <td>John</td>
+			        <td>Doe</td>
+			      </tr>
+			      <tr>
+			        <td>Mary</td>
+			        <td>Moe</td>
+			      </tr>
+			      <tr>
+			        <td>July</td>
+			        <td>Dooley</td>
+			      </tr>
+			    </tbody>
+	  </table>  		      

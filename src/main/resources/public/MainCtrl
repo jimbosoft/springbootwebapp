@@ -1,0 +1,65 @@
+(function() {
+	angular.module('rubixPricing').controller('MainCtrl',
+	
+	function 
+
+app.controller('mainCtrl', function($scope, $rootScope, $location) {
+	  
+	  $scope.menu = [
+	    {label:'Home', route:'/'},
+	    {label:'About', route:'/about'},
+	    {label:'Contact', route:'/contact'}
+	   ]
+	  
+	  $scope.menuActive = '/';
+	  
+	  $rootScope.$on('$routeChangeSuccess', function(e, curr, prev) {
+       $scope.menuActive = $location.path();
+    });
+		
+});
+
+(function() {
+    angular.module('app').controller('ServerHealthController',
+    		
+        function ServerHealthController($scope, serverHealthService) {
+            serverHealthService.getServerHealthService().then(
+                function(serverHealthDetails) {$scope.clusterDetails = serverHealthDetails; },
+                function(statusCode) { console.log(statusCode);}
+            );
+            
+            serverHealthService.getClusterNodes().then(
+                function(clusterNodeNames) {$scope.clusterNodes = clusterNodeNames; },
+                function(statusCode) { console.log(statusCode);}
+            );
+
+            $scope.showHealth = function() 
+            {
+            	serverHealthService.getClusterHealth().then(
+                        function(clusterHealth) {$scope.clusterHealth = clusterHealth; },
+                        function(statusCode) { console.log(statusCode);}
+                 );
+            };
+
+            $scope.getStatusImagePath = function(status) {
+                if(status == "UP") {
+                    return "resource/green_circle_small.png";
+                } else if(status == "DOWN") {
+                    return "resource/red_circle_small.png";
+                }
+            };
+
+            $scope.displayAdditionalInfo = function(additionalInfoArray) {
+                var displayValue = "";
+                for(var i=0; i < additionalInfoArray.length; i++) {
+                    if(i == 0) {
+                        displayValue += "Juristiction(s): \n"+ additionalInfoArray[i];
+
+                    }
+                }
+
+                $scope.displayData = displayValue;
+            };
+        }
+    );
+})();

@@ -1,0 +1,23 @@
+
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			Node Summary <span class="pull-right">Cluster:
+				{{clusterDetails.clusterName}} </span>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<table class="table table-striped table-hover">
+			<tbody ng-repeat="node in clusterNodes">
+				<tr ng-if="clusterDetails.myNodeName == node" class="success">
+					<td>{{node}} <span ng-if="$first"><strong>(Coordinator)</strong></span>
+					</td>
+				</tr>
+				<tr ng-if="clusterDetails.myNodeName != node">
+					<td>{{node}} <span ng-if="$first"><strong>(Coordinator)</strong></span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

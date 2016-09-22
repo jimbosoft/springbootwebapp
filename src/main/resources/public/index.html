@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="rubixPricing">
+
+<head>
+
+<title>RPM Index</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- jQuery library -->
+
+<!-- script data-require="jquery" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.js"></script -->
+<script src="/webjars/jquery/2.2.4/jquery.js"></script>
+
+<script src="/webjars/angularjs/1.5.6/angular.js"></script>
+<script src="/webjars/angularjs/1.5.6/angular-resource.js"></script>
+<script src="/webjars/angularjs/1.5.6/angular-route.js"></script>
+<!-- script data-require="angular.js@1.4.8" data-semver="1.4.8" src="https://code.angularjs.org/1.4.8/angular.min.js"></script -->
+<!-- script data-require="angular-route@*" data-semver="1.4.8" src="https://code.angularjs.org/1.4.8/angular-route.min.js"></script-->
+<!-- script src="https://code.angularjs.org/1.4.8/angular-resource.min.js"></script-->
+<script src="/lib/dirPagination.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<!-- link rel="stylesheet"	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" -->
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.css">
+
+<!-- Latest compiled JavaScript -->
+<!-- script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script -->
+<script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="/css/style.css" />
+<link href="/css/bootstrap-spacelab-theme.min.css" rel="stylesheet" />
+<script src="/js/app.js"></script>
+<script src="/js/http/VersionService.js"></script>
+<script src="/js/controller/VersionController.js"></script>
+<script src="/js/controller/StatusController.js"></script>
+<script src="/js/http/StatusService.js"></script>
+
+</head>
+
+<body ng-controller="VersionController" style="padding-top: 60px;">
+
+	<div class="container-fluid" style="margin: auto; width: 97%;">
+
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<p class="nav navbar-text"><strong>{{versionData.appName}}</strong></p>
+			</div>
+			<div ng-controller="mainCtrl" class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+				
+<!-- 				    <li ng-repeat="item in menu" ng-class="{active: item.route == menuActive }"> -->
+<!-- 				    	<a href="#{{item.route}}">{{item.label}}</a>  -->
+<!--                     </li> -->
+				
+<!-- 					<li class="nav"><a href="#/clusterNodes">Cluster Nodes</a></li> -->
+<!-- 					<li class="nav"><a href="#/systemStatus">System Status</a></li> -->
+<!-- 					<li class="nav"><a href="#/databaseStatus">Database Status</a></li> -->
+					<!--    <li class="nav"><a href="#/transactions">Transactions</a></li> -->
+				</ul>
+				<ul class="nav navbar-nav navbar-right" style="margin-right:20px;">
+					<li><p class="nav navbar-text">Last Update: {{date | date:'dd.MM.yyyy HH:mm:ss'}}</p></li>
+					<li><p class="nav navbar-text" >Version: {{versionData.versionNumber}}  </p></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!--  This includes the rendered $route in the page -->
+		<div ng-view></div>
+		
+
+	</div>
+	
+</body>
+</html>
